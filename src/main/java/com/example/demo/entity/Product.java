@@ -1,5 +1,10 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +26,7 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Product extends BaseEntity {
+public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,6 +40,12 @@ public class Product extends BaseEntity {
 	
 	@Column(length = 200, nullable = false)
 	String product_name;
+	
+	@CreatedDate
+	LocalDateTime regDate;
+	
+	@LastModifiedDate
+	LocalDateTime modDate;
 	
 	
 }
